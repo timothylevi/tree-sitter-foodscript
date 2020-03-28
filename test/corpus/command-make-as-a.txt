@@ -1,0 +1,9 @@
+==================
+Command: make...as-a
+==================
+
+make friends-pack as-a collection
+
+---
+
+(program (command (token) (type)))

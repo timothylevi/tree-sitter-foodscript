@@ -1,0 +1,28 @@
+==================
+Program: Peanut butter jelly
+==================
+
+get loaf-of-bread
+get peanut-butter
+get jelly
+
+make bottom-slice from-slice loaf-of-bread
+make top-slice from-slice loaf-of-bread
+
+spread peanut-butter on bottom-slice
+spread jelly on top-slice
+
+make my-sandwich from-combine(bottom-slice, top-slice)
+
+---
+
+(program
+  (command (token))
+  (command (token))
+  (command (token))
+  (command (token) (command (token)))
+  (command (token) (command (token)))
+  (command (token) (token))
+  (command (token) (token))
+  (command (token) (command (token) (token)))
+)

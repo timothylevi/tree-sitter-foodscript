@@ -1,0 +1,27 @@
+==================
+Program: Ham Sandwich
+==================
+
+get loaf-of-bread
+get mayonnaise
+get ham
+
+make bottom-slice from-slice loaf-of-bread
+make top-slice from-slice loaf-of-bread
+make ham-slice from-slice ham
+
+spread mayonnaise on bottom-slice
+
+make ham-sandwich from-combine(bottom-slice, ham-slice, top-slice)
+
+---
+
+(program
+  (command (token))
+  (command (token))
+  (command (token))
+  (command (token) (command (token)))
+  (command (token) (command (token)))
+  (command (token) (command (token)))
+  (command (token) (token))
+  (command (token) (command (token) (token) (token))))

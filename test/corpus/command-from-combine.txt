@@ -1,0 +1,9 @@
+==================
+Command: from-combine
+==================
+
+from-combine(bottom-slice, ham-slice, top-slice)
+
+---
+
+(program (command (token) (token) (token)))

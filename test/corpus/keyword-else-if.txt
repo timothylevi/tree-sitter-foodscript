@@ -1,0 +1,9 @@
+==================
+Keyword: else if
+==================
+
+else if cream-cheese is-full?
+
+---
+
+(program (keyword (command (token))))

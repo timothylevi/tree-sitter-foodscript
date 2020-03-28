@@ -1,0 +1,32 @@
+==================
+Program: Donut Pack
+==================
+
+get donut-pack
+
+make donut-1 from-take donut-pack
+make donut-2 from-take donut-pack
+make donut-3 from-take donut-pack
+make donut-4 from-take donut-pack
+
+make friends-pack as-a collection
+
+add donut-1 to friends-pack
+add donut-2 to friends-pack
+add donut-3 to friends-pack
+add donut-4 to friends-pack
+
+---
+
+(program
+  (command (token))
+  (command (token) (command (token)))
+  (command (token) (command (token)))
+  (command (token) (command (token)))
+  (command (token) (command (token)))
+  (command (token) (type))
+  (command (token) (token))
+  (command (token) (token))
+  (command (token) (token))
+  (command (token) (token))
+)

@@ -1,0 +1,9 @@
+==================
+Command: spread...on
+==================
+
+spread mayonnaise on bottom-slice
+
+---
+
+(program (command (token) (token)))

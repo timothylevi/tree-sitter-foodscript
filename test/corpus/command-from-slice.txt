@@ -1,0 +1,9 @@
+==================
+Command: from-slice
+==================
+
+from-slice loaf-of-bread
+
+---
+
+(program (command (token)))

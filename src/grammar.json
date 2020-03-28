@@ -1,0 +1,315 @@
+{
+  "name": "FoodScript",
+  "rules": {
+    "program": {
+      "type": "REPEAT",
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "keyword"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "token"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "command"
+          }
+        ]
+      }
+    },
+    "type": {
+      "type": "ALIAS",
+      "content": {
+        "type": "SYMBOL",
+        "name": "token"
+      },
+      "named": false,
+      "value": "type"
+    },
+    "keyword": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_keyword_if"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_keyword_else_if"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_keyword_else"
+        }
+      ]
+    },
+    "_keyword_if": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "if"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "command"
+        }
+      ]
+    },
+    "_keyword_else_if": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "else if"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "command"
+        }
+      ]
+    },
+    "_keyword_else": {
+      "type": "PATTERN",
+      "value": "else"
+    },
+    "command": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_command_condition"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_command_make"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_command_single_arg"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_command_multi_arg"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_command_split"
+        }
+      ]
+    },
+    "_command_multi_arg": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "from-combine"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_command_arg_list"
+        }
+      ]
+    },
+    "_command_single_arg": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "get|from-slice|from-take|grill"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "token"
+        }
+      ]
+    },
+    "_command_make": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "make"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "token"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "command"
+        }
+      ]
+    },
+    "_command_split": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "__command_make_as_a"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "__command_spread_on"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "__command_add_to"
+        }
+      ]
+    },
+    "_command_condition": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "token"
+        },
+        {
+          "type": "PATTERN",
+          "value": "\\w+(?:-\\w+)+\\?"
+        }
+      ]
+    },
+    "_command_arg_list": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "\\("
+        },
+        {
+          "type": "REPEAT1",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "token"
+              },
+              {
+                "type": "PATTERN",
+                "value": ","
+              }
+            ]
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "token"
+        },
+        {
+          "type": "PATTERN",
+          "value": "\\)"
+        }
+      ]
+    },
+    "__command_spread_on": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "spread"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "token"
+        },
+        {
+          "type": "PATTERN",
+          "value": "on"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "token"
+        }
+      ]
+    },
+    "__command_add_to": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "add"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "token"
+        },
+        {
+          "type": "PATTERN",
+          "value": "to"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "token"
+        }
+      ]
+    },
+    "__command_make_as_a": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "make"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "token"
+        },
+        {
+          "type": "PATTERN",
+          "value": "as-a"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "type"
+        }
+      ]
+    },
+    "token": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_token_multi_word"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_token_single_word"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_token_special_char"
+        }
+      ]
+    },
+    "_token_multi_word": {
+      "type": "PATTERN",
+      "value": "\\w+(?:-\\w+)+"
+    },
+    "_token_single_word": {
+      "type": "PATTERN",
+      "value": "\\w+"
+    },
+    "_token_special_char": {
+      "type": "PATTERN",
+      "value": "\\(|\\)|,"
+    }
+  },
+  "extras": [
+    {
+      "type": "PATTERN",
+      "value": "\\s"
+    }
+  ],
+  "conflicts": [],
+  "externals": [],
+  "inline": [],
+  "supertypes": []
+}
+

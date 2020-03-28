@@ -1,0 +1,35 @@
+==================
+Program: Peanut butter jelly conditional
+==================
+
+get loaf-of-bread
+get peanut-butter
+get jelly
+
+if loaf-of-bread is-full?
+  make bottom-slice from-slice loaf-of-bread
+  make top-slice from-slice loaf-of-bread
+
+  if peanut-butter is-full?
+    spread peanut-butter on bottom-slice
+
+  if jelly is-full?
+    spread jelly on top-slice
+
+  make my-sandwich from-combine(bottom-slice, top-slice)
+
+---
+
+(program
+  (command (token))
+  (command (token))
+  (command (token))
+  (keyword (command (token)))
+  (command (token) (command (token)))
+  (command (token) (command (token)))
+  (keyword (command (token)))
+  (command (token) (token))
+  (keyword (command (token)))
+  (command (token) (token))
+  (command (token) (command (token) (token)))
+)

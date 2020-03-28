@@ -1,0 +1,26 @@
+==================
+Program: Bagel
+==================
+
+get bagel
+get cream-cheese
+get butter
+
+make bagel-slice from-slice bagel
+
+if cream-cheese is-full?
+  spread cream-cheese on bagel-slice
+else
+  spread butter on bagel-slice
+---
+
+(program
+  (command (token))
+  (command (token))
+  (command (token))
+  (command (token) (command (token)))
+  (keyword (command (token)))
+  (command (token) (token))
+  (keyword)
+  (command (token) (token))
+)

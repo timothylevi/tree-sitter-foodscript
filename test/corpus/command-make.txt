@@ -1,0 +1,9 @@
+==================
+Command: make
+==================
+
+make bottom-slice from-slice loaf-of-bread
+
+---
+
+(program (command (token) (command (token))))

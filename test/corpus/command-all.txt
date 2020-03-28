@@ -1,0 +1,28 @@
+==================
+Command: All
+==================
+
+add one-object to a-collection
+from-combine(object-one, object-two)
+from-slice a-collection
+from-take a-collection
+get built-in-object
+grill grillable-object
+fresh-or-rotten-object is-fresh?
+full-or-empty-object is-full?
+make variable-name from-command object
+
+
+---
+
+(program
+  (command (token) (token))
+  (command (token) (token))
+  (command (token))
+  (command (token))
+  (command (token))
+  (command (token))
+  (command (token))
+  (command (token))
+  (command (token) (command (token)))
+)

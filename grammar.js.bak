@@ -1,0 +1,14 @@
+module.exports = grammar({
+  name: 'FoodScript',
+
+  rules: {
+    // TODO: add the actual grammar rules
+    source_file: $ => repeat(/\w/),
+    get: $ => seq(/get/, $.built_in, /\n/),
+    built_in: $ => /block-of-cheese|burger-bun-pack|butter|donut-pack|empty-bowls|empty-skewers-pack|green-pepper|ham|infinite-pancake-stack|jelly|ketchup|loaf-of-bread|mayonnaise|mushroom-pack|olive-oil|onion|nutella|peanut-butter|red-pepper|veggie-patty-pack|whole-avocado|whole-lettuce|whole-tomato/,
+    command_with_arg: $ => seq($._command_with_arg_names, /\w+(?:-\w+)|\w+/),
+    _command_with_arg_names: $ => /from-combine|from-slice|get|make/,
+    _sliceable_built_in_objects: $ => /block-of-cheese|butter|green-pepper|ham|loaf-of-bread|onion|red-pepper|whole-avocado|whole-lettuce|whole-tomato/,
+    command_from_slice: $ => seq(/from-slice/, $._sliceable_built_in_objects, /\n/),
+  }
+});
